@@ -25,7 +25,7 @@ open('FH', "./serverlist") or die "can't open ./serverlist: $!";
 while (defined (my $host = <FH>)) {
   chomp $host;
 
-  # Check to see if key authentication is already working so we don't copy the key twice.
+  # Check to see if key authentication is already working so we don't copy the key twice
   if(system("ssh -o BatchMode=yes -o ConnectTimeout=5 $host uptime 2>&1 | grep -q average") != "0")
   {
     # Set up the command to copy the ssh key
